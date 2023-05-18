@@ -1,7 +1,14 @@
+import { Events } from "./Events";
+
 export const EventsList = () => {
   return (
     <>
-      <h1>All events</h1>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <Events />
+        <Events />
+        <Events />
+        <Events />
+      </div>
     </>
   );
 };
