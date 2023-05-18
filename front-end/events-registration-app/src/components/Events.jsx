@@ -8,9 +8,9 @@ export const Events = () => {
         className="text-center"
         style={{ maxWidth: "100%", margin: "50px auto" }}
       >
-        <Card.Header>Event date</Card.Header>
+        <Card.Header>Geust card</Card.Header>
         <Card.Body>
-          <Card.Title>Event Title</Card.Title>
+          <Card.Title>Guest</Card.Title>
           <Card.Text>Name</Card.Text>
           <Card.Text>Lastname</Card.Text>
           <Card.Text>Phone number</Card.Text>
@@ -28,7 +28,7 @@ export const Events = () => {
             Delete
           </Button>
         </Card.Body>
-        <Card.Footer className="text-muted">Message for client</Card.Footer>
+        <Card.Footer className="text-muted">Notes</Card.Footer>
       </Card>
     </>
   );
