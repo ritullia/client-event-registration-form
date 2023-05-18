@@ -1,0 +1,19 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ritullia/client-event-registration-form.git"
+  },
+  "author": "Rita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ritullia/client-event-registration-form/issues"
+  },
+  "homepage": "https://github.com/ritullia/client-event-registration-form#readme"
+}
