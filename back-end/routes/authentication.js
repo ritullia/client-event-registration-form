@@ -16,7 +16,7 @@ router.post("/register", (req, res) => {
   const hashedPassword = bcrypt.hashSync(password, 12);
 
   clientsDbConnection.execute(
-    "INSERT INTO users (name, lastname, email, password) VALUES (?, ?, ?, ?)",
+    "INSERT INTO user (name, lastname, email, password) VALUES (?, ?, ?, ?)",
     [name, email, hashedPassword],
     (err, result) => defaultCallBack(err, result, res)
   );

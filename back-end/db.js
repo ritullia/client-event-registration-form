@@ -29,7 +29,7 @@ clientsDbConnection.query(
                 id INT NOT NULL AUTO_INCREMENT,
                 name VARCHAR(100) NOT NULL,
                 lastname VARCHAR(100) NOT NULL,
-                phone_number DECIMAL(6,2) NOT NULL,
+                phone_number BIGINT(20) NOT NULL,
                 email VARCHAR(100) NOT NULL,
                 primary key (id)
             )
@@ -37,7 +37,25 @@ clientsDbConnection.query(
 
       clientsDbConnection.query(clientTableQuery, function (err) {
         if (err) throw err;
-        console.log("Clients Table created");
+        console.log("Client Table created");
+      });
+
+      const usersTableQuery = `
+            CREATE TABLE IF NOT EXISTS
+            user (
+                id INT NOT NULL AUTO_INCREMENT,
+                name VARCHAR(100) NOT NULL,
+                lastname VARCHAR(100) NOT NULL,
+                phone_number BIGINT(20) NOT NULL,
+                email VARCHAR(100) NOT NULL,
+                password VARCHAR(100) NOT NULL,
+                primary key (id)
+            )
+        `;
+
+      clientsDbConnection.query(usersTableQuery, function (err) {
+        if (err) throw err;
+        console.log("Users Table created");
       });
     });
   }
