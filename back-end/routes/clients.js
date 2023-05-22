@@ -4,13 +4,13 @@ const { defaultCallBack } = require("../helpers/dbHelper");
 
 const router = express.Router();
 
-router.get("/client", (req, res) => {
+router.get("/clients", (req, res) => {
   clientsDbConnection.execute(`SELECT * FROM client`, (err, result) => {
     defaultCallBack(err, result, res);
   });
 });
 
-router.post("/client", (req, res) => {
+router.post("/clients", (req, res) => {
   const {
     body: { name, lastname, phone_number, email },
   } = req;

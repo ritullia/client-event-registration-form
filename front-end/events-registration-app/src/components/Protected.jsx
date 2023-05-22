@@ -14,7 +14,7 @@ export const Protected = ({ isLoading, setIsLoading }) => {
     axios
       .get("http://localhost:5000/token/verify", {
         headers: {
-          authorisation: "Bearer " + token,
+          authorisation: "Bearer  " + token,
         },
       })
       .then((response) => {

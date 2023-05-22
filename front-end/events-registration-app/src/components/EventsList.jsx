@@ -8,7 +8,7 @@ export const EventsList = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios("http://localhost:5000/user")
+    axios("http://localhost:5000/clients")
       .then((res) => {
         setClients(res.data);
         setIsLoading(false);
@@ -19,13 +19,13 @@ export const EventsList = () => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  console.log("clients", clients);
+  console.log("client", clients);
 
   return (
     <>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {clients.map((client) => (
-          <Events client={client} />
+          <Events client={client} key={client.id} />
         ))}
       </div>
     </>
