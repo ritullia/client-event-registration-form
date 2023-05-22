@@ -1,13 +1,42 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { AuthenticationContext } from "./AuthenticationContext";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const { setIsSignedIn } = useContext(AuthenticationContext);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+  const [error, setError] = useState(null);
   const onHandleSubmit = (e) => {
     e.preventDefault();
     alert(`Papsaustas prisijungti mygtukas`);
+
+    axios
+      .post("http://localhost:5000/login", formData)
+      .then((response) => {
+        if (response.data.token) {
+          localStorage.setItem("token", response.data.token);
+          setIsSignedIn(true);
+          navigate("/events");
+        } else {
+          setError(response.data.message);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleOnChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
   return (
     <>
@@ -28,6 +57,7 @@ export const Login = () => {
             <Form.Control
               name="email"
               type="email"
+              onChange={handleOnChange}
               placeholder="Enter email"
               required
             />
@@ -40,6 +70,7 @@ export const Login = () => {
             <Form.Control
               name="password"
               type="password"
+              onChange={handleOnChange}
               placeholder="Password"
               required
             />
@@ -51,6 +82,7 @@ export const Login = () => {
           >
             Log in
           </Button>
+          {error && <div>{error}</div>}
         </Form>
       </>
     </>

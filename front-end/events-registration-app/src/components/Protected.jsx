@@ -12,7 +12,7 @@ export const Protected = ({ isLoading, setIsLoading }) => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios
-      .get("http://localhost:8000/token/verify", {
+      .get("http://localhost:5000/token/verify", {
         headers: {
           authorisation: "Bearer " + token,
         },
@@ -23,7 +23,8 @@ export const Protected = ({ isLoading, setIsLoading }) => {
           navigate(location.pathname);
           setIsLoading(false);
         }
-      });
+      })
+      .catch((err) => {});
   }, []);
 
   if (isLoading) {

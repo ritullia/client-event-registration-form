@@ -8,12 +8,14 @@ import { Register } from "./components/Register";
 import { Footer } from "./components/Footer";
 import { useContext, useState } from "react";
 import { AuthenticationContext } from "./components/AuthenticationContext";
+import { Protected } from "./components/Protected";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
   const { setIsSignedIn } = useContext(AuthenticationContext);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleLogOut = () => {
+    localStorage.removeItem("token");
     setIsSignedIn(false);
   };
   return (
@@ -22,8 +24,14 @@ function App() {
       <Routes>
         <Route element={<Login />} path="/login" />
         <Route element={<Register />} path="/register" />
-        <Route element={<EventsList />} path="/events" />
-        <Route element={<AdminPanel />} path="/admin" />
+        <Route
+          element={
+            <Protected isLoading={isLoading} setIsLoading={setIsLoading} />
+          }
+        >
+          <Route element={<EventsList />} path="/events" />
+          <Route element={<AdminPanel />} path="/admin" />
+        </Route>
       </Routes>
       <Footer />
     </>

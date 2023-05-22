@@ -1,12 +1,29 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
+// import axios from "axios";
+import { useState } from "react";
 import axios from "axios";
 
 export const Register = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    lastname: "",
+    email: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
   const onHandleSubmit = (e) => {
     e.preventDefault();
     alert(`Papsaustas registravimo formos mygtukas`);
+
+    axios
+      .post("http://localhost:5000/register", formData)
+      .then((response) => {
+        navigate("/login");
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <>
