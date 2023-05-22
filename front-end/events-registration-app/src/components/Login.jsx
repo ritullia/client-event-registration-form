@@ -13,10 +13,11 @@ export const Login = () => {
   });
 
   const navigate = useNavigate();
+
   const [error, setError] = useState(null);
+
   const onHandleSubmit = (e) => {
     e.preventDefault();
-    alert(`Papsaustas prisijungti mygtukas`);
 
     axios
       .post("http://localhost:5000/login", formData)
@@ -24,7 +25,7 @@ export const Login = () => {
         if (response.data.token) {
           localStorage.setItem("token", response.data.token);
           setIsSignedIn(true);
-          navigate("/events");
+          navigate("/admin");
         } else {
           setError(response.data.message);
         }
@@ -52,7 +53,7 @@ export const Login = () => {
             borderRadius: "8px",
           }}
         >
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="formBasic">
             <Form.Label>Email address</Form.Label>
             <Form.Control
               name="email"

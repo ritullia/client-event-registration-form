@@ -1,7 +1,8 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-export const Events = () => {
+export const Events = ({ client }) => {
+  const { name, lastname, phone_number, email } = client;
   return (
     <>
       <Card
@@ -11,10 +12,10 @@ export const Events = () => {
         <Card.Header>Geust card</Card.Header>
         <Card.Body>
           <Card.Title>Guest</Card.Title>
-          <Card.Text>Name</Card.Text>
-          <Card.Text>Lastname</Card.Text>
-          <Card.Text>Phone number</Card.Text>
-          <Card.Text>Email</Card.Text>
+          <Card.Text>{name}</Card.Text>
+          <Card.Text>{lastname}</Card.Text>
+          <Card.Text>{phone_number}</Card.Text>
+          <Card.Text>{email}</Card.Text>
           <Button
             onClick={() => alert("Clicked Edit Button")}
             variant="primary"

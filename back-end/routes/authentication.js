@@ -23,8 +23,9 @@ router.post("/register", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-  const { body } = req;
-  const { email, password } = body;
+  const {
+    body: { email, password },
+  } = req;
 
   const incorrectCredentialsResponse = () =>
     res.json({
