@@ -16,7 +16,7 @@ export const Register = () => {
   const navigate = useNavigate();
   const onHandleSubmit = (e) => {
     e.preventDefault();
-    alert(`Papsaustas registravimo formos mygtukas`);
+    alert(`Papsaustas registravimo formos mygtukas ${formData}`);
 
     axios
       .post("http://localhost:5000/register", formData)
@@ -24,6 +24,13 @@ export const Register = () => {
         navigate("/login");
       })
       .catch((err) => console.log(err));
+  };
+
+  const handleOnChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
   return (
     <>
@@ -65,6 +72,7 @@ export const Register = () => {
               <Form.Control
                 name="name"
                 type="text"
+                onChange={handleOnChange}
                 placeholder="Enter name"
                 required
               />
@@ -74,6 +82,7 @@ export const Register = () => {
               <Form.Control
                 name="lastname"
                 type="text"
+                onChange={handleOnChange}
                 placeholder="Enter lastname"
                 required
               />
@@ -83,6 +92,7 @@ export const Register = () => {
               <Form.Control
                 name="email"
                 type="email"
+                onChange={handleOnChange}
                 placeholder="Enter e-mail"
                 required
               />
@@ -92,6 +102,7 @@ export const Register = () => {
               <Form.Control
                 name="password"
                 type="password"
+                onChange={handleOnChange}
                 placeholder="********"
                 required
               />
@@ -109,14 +120,14 @@ export const Register = () => {
               variant="primary"
               type="submit"
             >
-              Register
+              REGISTER
             </Button>
             <Button
               //   onClick={() => alert("Įvestas naujas klientas")}
               variant="info"
               type="submit"
             >
-              Reset
+              RESET
             </Button>
           </Form>
         </div>

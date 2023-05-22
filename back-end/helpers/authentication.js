@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-export const verifyToken = (req, res, next) => {
+const verifyToken = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
     const user = jwt.verify(token, process.env.JWT_SECRET);
@@ -11,4 +11,8 @@ export const verifyToken = (req, res, next) => {
       message: "Invalid token",
     });
   }
+};
+
+module.exports = {
+  verifyToken,
 };
