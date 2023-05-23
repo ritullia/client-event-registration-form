@@ -23,7 +23,7 @@ export const Protected = ({ isLoading, setIsLoading }) => {
           navigate(location.pathname);
           setIsLoading(false);
         }
-        console.log(response);
+        console.log(response.data.id);
       })
       .catch((err) => console.log(err));
   }, [location.pathname, navigate, setIsLoading, setIsSignedIn]);

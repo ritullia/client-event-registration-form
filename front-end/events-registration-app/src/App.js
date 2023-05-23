@@ -18,11 +18,13 @@ function App() {
     localStorage.removeItem("token");
     setIsSignedIn(false);
   };
+
+  const handleLogin = () => setIsSignedIn(true);
   return (
     <>
       <NavBar isLoading={isLoading} onLogout={handleLogOut} />
       <Routes>
-        <Route element={<Login />} path="/login" />
+        <Route element={<Login />} path="/login" onLogin={handleLogin} />
         <Route element={<Register />} path="/register" />
         <Route element={<EventsList />} path="/events" />
         <Route element={<AdminPanel />} path="/admin" />
