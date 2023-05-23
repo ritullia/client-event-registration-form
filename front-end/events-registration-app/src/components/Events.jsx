@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-export const ClientCard = ({ client, onClick }) => {
+export const Events = ({ client, onClick }) => {
   const { id, name, lastname, phone_number, email } = client;
 
   return (

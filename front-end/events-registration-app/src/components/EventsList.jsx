@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-import { ClientCard } from "./ClientCard";
+import { Events } from "./Events";
 // import { ClientContext } from "../reducerForClients/ClientContext";
 import axios from "axios";
 
 export const EventsList = () => {
-  const [clients, setClients] = useState(null);
+  const [clients, setClients] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -34,10 +34,10 @@ export const EventsList = () => {
           ?.filter((client) => client.id)
           .map((client) => {
             return (
-              <ClientCard
+              <Events
                 client={client}
                 key={client.id}
-                onClick={deleteClient}
+                onClick={deleteClient()}
               />
             );
           })}
