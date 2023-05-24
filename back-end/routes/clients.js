@@ -11,7 +11,7 @@ router.get("/clients", verifyToken, (req, res) => {
   });
 });
 
-router.post("/clients", (req, res) => {
+router.post("/clients", verifyToken, (req, res) => {
   const {
     body: { name, lastname, phone_number, email },
   } = req;

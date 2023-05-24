@@ -25,7 +25,7 @@ export const Login = () => {
         if (response.data.token) {
           localStorage.setItem("token", response.data.token);
           setIsSignedIn(true);
-          navigate("/admin");
+          navigate("/");
         } else {
           setError(response.data.message);
         }

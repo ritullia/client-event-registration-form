@@ -1,48 +1,35 @@
 import { useEffect, useState, useMemo } from "react";
-
 import { Events } from "./Events";
-// import { ClientContext } from "../reducerForClients/ClientContext";
-import axios from "axios";
+
+// import axios from "axios";
 
 export const EventsList = () => {
-  const [clients, setClients] = useState(null);
+  const [clientsData, setClientsData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios("http://localhost:5000/clients")
-      .then((res) => {
-        setClients(res.data);
+    fetch("http://localhost:5000/clients")
+      .then((res) => res.json())
+      .then((clientsData) => {
+        setClientsData(clientsData);
         setIsLoading(false);
-      })
-      .catch((err) => console.log(err));
+      });
   }, []);
 
-  const deleteClient = (client) => {
-    setClients(client);
-
-    alert(`${client.name} pasalintas is saraso`);
-  };
+  const mappedClients = useMemo(() => {
+    return clientsData.map((client) => (
+      <Events key={client.id} client={client} />
+    ));
+  }, [clientsData]);
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  console.log("client", clients);
+  console.log("client", clientsData);
 
   return (
     <>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {clients
-          ?.filter((client) => client.name)
-          .map((client) => {
-            return (
-              <Events
-                client={client}
-                key={client.id}
-                onClick={deleteClient()}
-              />
-            );
-          })}
-      </div>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>{mappedClients}</div>
     </>
   );
 };
