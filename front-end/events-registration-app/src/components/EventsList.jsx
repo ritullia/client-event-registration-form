@@ -1,11 +1,22 @@
 import { useEffect, useState, useMemo } from "react";
 import { Events } from "./Events";
+import { EditClientModal } from "./EditClientModal";
 
 import axios from "axios";
 
 export const EventsList = () => {
   const [clientsData, setClientsData] = useState(null);
+  const [activeClient, setActiveClient] = useState(null);
+
   const [isLoading, setIsLoading] = useState(true);
+
+  const handleClientClick = (client) => {
+    setActiveClient(client);
+  };
+
+  const handleModalClose = () => {
+    setActiveClient(null);
+  };
 
   const handleRemoveClient = (id) => {
     if (window.confirm(`Do you want to remove ?`)) {
@@ -28,7 +39,12 @@ export const EventsList = () => {
 
   const mappedClients = useMemo(() => {
     return clientsData?.map((client) => (
-      <Events key={client.id} client={client} onClick={handleRemoveClient} />
+      <Events
+        key={client.id}
+        client={client}
+        onRemove={handleRemoveClient}
+        onEdit={handleClientClick}
+      />
     ));
   }, [clientsData]);
 
@@ -40,6 +56,10 @@ export const EventsList = () => {
   return (
     <>
       <div style={{ display: "flex", flexWrap: "wrap" }}>{mappedClients}</div>
+      <EditClientModal
+        activeClient={activeClient}
+        handleModalClose={handleModalClose}
+      />
     </>
   );
 };

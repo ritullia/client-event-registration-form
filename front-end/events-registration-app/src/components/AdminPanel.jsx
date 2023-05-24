@@ -22,7 +22,7 @@ export const AdminPanel = () => {
 
     axios.post("http://localhost:5000/clients", data).then((response) => {
       console.log(response.data);
-      navigate("/events");
+      navigate("/clients");
     });
   };
 
