@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-export const Events = ({ client, onClick }) => {
+export const Events = ({ client }) => {
   const { id, name, lastname, phone_number, email } = client;
 
   console.log(client);
@@ -21,9 +21,7 @@ export const Events = ({ client, onClick }) => {
           <Card.Text>{phone_number}</Card.Text>
           <Card.Text>{email}</Card.Text>
           <Button variant="primary">Edit</Button>
-          <Button onClick={() => onClick(client)} variant="danger">
-            Delete
-          </Button>
+          <Button variant="danger">Delete</Button>
         </Card.Body>
         <Card.Footer className="text-muted">Notes</Card.Footer>
       </Card>
