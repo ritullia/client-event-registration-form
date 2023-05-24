@@ -1,4 +1,4 @@
-import { ContainerBody, Container } from "../Syles/HomeStyled";
+import { ContainerBody, Container } from "../Styles/HomeStyled";
 
 export const HomePage = () => {
   return (

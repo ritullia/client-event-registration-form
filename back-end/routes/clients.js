@@ -25,6 +25,17 @@ router.post("/clients", (req, res) => {
   );
 });
 
+router.put("/clients/:id", (req, res) => {
+  const { body } = req;
+  const { id } = req.params;
+
+  clientsDbConnection.execute(
+    `UPDATE clients SET name=?, lastname=?, phone_number=?, email=? WHERE id=?`,
+    [body.name, body.lastname, body.phone_number, body.email, id],
+    (err, result) => defaultCallBack(err, result, res)
+  );
+});
+
 router.delete("/clients/:id", (req, res) => {
   const { id } = req.params;
 

@@ -37,6 +37,15 @@ export const EventsList = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const handleModalSubmit = (id) => {
+    axios
+      .put(`http://localhost:5000/clients/${id}`)
+      .then((res) => {
+        setActiveClient(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
   const mappedClients = useMemo(() => {
     return clientsData?.map((client) => (
       <Events
@@ -59,6 +68,7 @@ export const EventsList = () => {
       <EditClientModal
         activeClient={activeClient}
         handleModalClose={handleModalClose}
+        handleModalSubmit={handleModalSubmit}
       />
     </>
   );

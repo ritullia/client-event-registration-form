@@ -3,8 +3,12 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
-export const EditClientModal = ({ activeClient, handleModalClose }) => {
-  console.log(activeClient);
+export const EditClientModal = ({
+  activeClient,
+  handleModalClose,
+  handleModalSubmit,
+}) => {
+  //   console.log(activeClient);
 
   const [data, setData] = useState({
     name: "",
@@ -12,8 +16,6 @@ export const EditClientModal = ({ activeClient, handleModalClose }) => {
     phone_number: "",
     email: "",
   });
-
-  const handleSubmitChange = () => {};
 
   const handleOnChange = (e) => {
     setData({
@@ -42,7 +44,6 @@ export const EditClientModal = ({ activeClient, handleModalClose }) => {
                 type="text"
                 placeholder="Name"
                 onChange={handleOnChange}
-                autoFocus
               />
               <Form.Label>Lastname</Form.Label>
               <Form.Control
@@ -50,7 +51,6 @@ export const EditClientModal = ({ activeClient, handleModalClose }) => {
                 type="text"
                 placeholder="Lastname"
                 onChange={handleOnChange}
-                autoFocus
               />
               <Form.Label>Phone number</Form.Label>
               <Form.Control
@@ -58,7 +58,6 @@ export const EditClientModal = ({ activeClient, handleModalClose }) => {
                 type="text"
                 onChange={handleOnChange}
                 placeholder="Please insert phone number"
-                autoFocus
               />
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -66,7 +65,6 @@ export const EditClientModal = ({ activeClient, handleModalClose }) => {
                 name="email"
                 onChange={handleOnChange}
                 placeholder="name@example.com"
-                autoFocus
               />
             </Form.Group>
           </Form>
@@ -75,7 +73,7 @@ export const EditClientModal = ({ activeClient, handleModalClose }) => {
           <Button variant="secondary" onClick={handleModalClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleSubmitChange}>
+          <Button variant="primary" onClick={handleModalSubmit}>
             Submit
           </Button>
         </Modal.Footer>
