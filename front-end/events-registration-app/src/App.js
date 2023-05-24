@@ -24,7 +24,6 @@ function App() {
     <>
       <NavBar isLoading={isLoading} onLogout={handleLogOut} />
       <Routes>
-        <Route element={<HomePage />} path="/" />
         <Route element={<Login />} path="/login" />
         <Route element={<Register />} path="/register" />
         {/* <Route element={<EventsList />} path="/events" />
@@ -34,7 +33,8 @@ function App() {
             <Protected isLoading={isLoading} setIsLoading={setIsLoading} />
           }
         >
-          <Route element={<EventsList />} path="/events" />
+          <Route element={<HomePage />} path="/" />
+          <Route element={<EventsList />} path="/clients" />
           <Route element={<AdminPanel />} path="/admin" />
         </Route>
       </Routes>

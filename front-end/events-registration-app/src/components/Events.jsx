@@ -9,7 +9,6 @@ export const Events = ({ client, onClick }) => {
   return (
     <>
       <Card
-        onClick={() => onClick(client)}
         className="text-center"
         style={{ maxWidth: "100%", margin: "50px auto" }}
       >
@@ -22,7 +21,9 @@ export const Events = ({ client, onClick }) => {
           <Card.Text>{phone_number}</Card.Text>
           <Card.Text>{email}</Card.Text>
           <Button variant="primary">Edit</Button>
-          <Button variant="danger">Delete</Button>
+          <Button onClick={() => onClick(client)} variant="danger">
+            Delete
+          </Button>
         </Card.Body>
         <Card.Footer className="text-muted">Notes</Card.Footer>
       </Card>

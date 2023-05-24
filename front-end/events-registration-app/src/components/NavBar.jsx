@@ -20,7 +20,7 @@ export const NavBar = ({ isLoding, onLogout }) => {
             <Container>
               <Navbar.Brand href="/">LOGO</Navbar.Brand>
               <Nav className="me-auto">
-                <Nav.Link href="/events">Events</Nav.Link>
+                <Nav.Link href="/clients">Clients</Nav.Link>
                 <Nav.Link href="/admin">Admin</Nav.Link>
               </Nav>
             </Container>
@@ -28,7 +28,6 @@ export const NavBar = ({ isLoding, onLogout }) => {
         ) : (
           <>
             <Container>
-              <Navbar.Brand href="/">LOGO</Navbar.Brand>
               <Nav className="me-auto">
                 <Nav.Link href="/login">Log in</Nav.Link>
                 <Nav.Link href="/register">Register</Nav.Link>

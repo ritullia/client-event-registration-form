@@ -26,7 +26,7 @@ export const Protected = ({ isLoading, setIsLoading }) => {
         console.log(response.data.id);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [location.pathname, navigate, setIsLoading, setIsSignedIn]);
 
   if (isLoading) {
     return <div>Page is Loading</div>;
