@@ -26,8 +26,6 @@ function App() {
       <Routes>
         <Route element={<Login />} path="/login" />
         <Route element={<Register />} path="/register" />
-        {/* <Route element={<EventsList />} path="/events" />
-        <Route element={<AdminPanel />} path="/admin" /> */}
         <Route
           element={
             <Protected isLoading={isLoading} setIsLoading={setIsLoading} />
@@ -38,7 +36,7 @@ function App() {
           <Route element={<AdminPanel />} path="/admin" />
         </Route>
       </Routes>
-      <Footer />
+      <Footer isLoading={isLoading} onLogout={handleLogOut} />
     </>
   );
 }
