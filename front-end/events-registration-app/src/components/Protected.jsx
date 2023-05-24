@@ -14,7 +14,7 @@ export const Protected = ({ isLoading, setIsLoading }) => {
     axios
       .get("http://localhost:5000/token/verify", {
         headers: {
-          authorisation: "Bearer " + token,
+          authorization: "Bearer " + token,
         },
       })
       .then((response) => {
@@ -26,7 +26,7 @@ export const Protected = ({ isLoading, setIsLoading }) => {
         console.log(response.data.id);
       })
       .catch((err) => console.log(err));
-  }, [location.pathname, navigate, setIsLoading, setIsSignedIn]);
+  }, []);
 
   if (isLoading) {
     return <div>Page is Loading</div>;

@@ -4,6 +4,8 @@ import Card from "react-bootstrap/Card";
 export const Events = ({ client, onClick }) => {
   const { id, name, lastname, phone_number, email } = client;
 
+  console.log(client);
+
   return (
     <>
       <Card

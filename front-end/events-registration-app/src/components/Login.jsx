@@ -41,51 +41,49 @@ export const Login = () => {
   };
   return (
     <>
-      <>
-        <Form
-          onSubmit={onHandleSubmit}
-          style={{
-            maxWidth: "340px",
-            margin: "50px auto",
-            backgroundColor: "#4b5162",
-            padding: "20px",
-            color: "#ffff",
-            borderRadius: "8px",
-          }}
+      <Form
+        onSubmit={onHandleSubmit}
+        style={{
+          maxWidth: "340px",
+          margin: "50px auto",
+          backgroundColor: "#4b5162",
+          padding: "20px",
+          color: "#ffff",
+          borderRadius: "8px",
+        }}
+      >
+        <Form.Group className="mb-3" controlId="formBasic">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            name="email"
+            type="email"
+            onChange={handleOnChange}
+            placeholder="Enter email"
+            required
+          />
+          <Form.Text className="text-muted">
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            name="password"
+            type="password"
+            onChange={handleOnChange}
+            placeholder="Password"
+            required
+          />
+        </Form.Group>
+        <Button
+          //   onClick={() => alert("Įvestas naujas klientas")}
+          variant="primary"
+          type="submit"
         >
-          <Form.Group className="mb-3" controlId="formBasic">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              name="email"
-              type="email"
-              onChange={handleOnChange}
-              placeholder="Enter email"
-              required
-            />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              name="password"
-              type="password"
-              onChange={handleOnChange}
-              placeholder="Password"
-              required
-            />
-          </Form.Group>
-          <Button
-            //   onClick={() => alert("Įvestas naujas klientas")}
-            variant="primary"
-            type="submit"
-          >
-            Log in
-          </Button>
-          {error && <div>{error}</div>}
-        </Form>
-      </>
+          Log in
+        </Button>
+        {error && <div>{error}</div>}
+      </Form>
     </>
   );
 };

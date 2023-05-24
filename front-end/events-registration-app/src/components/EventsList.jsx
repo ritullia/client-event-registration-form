@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 import { Events } from "./Events";
 // import { ClientContext } from "../reducerForClients/ClientContext";
 import axios from "axios";
 
 export const EventsList = () => {
-  const [clients, setClients] = useState([]);
+  const [clients, setClients] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios(`http://localhost:5000/clients`)
+    axios("http://localhost:5000/clients")
       .then((res) => {
         setClients(res.data);
         setIsLoading(false);
@@ -19,6 +19,7 @@ export const EventsList = () => {
 
   const deleteClient = (client) => {
     setClients(client);
+
     alert(`${client.name} pasalintas is saraso`);
   };
 
@@ -31,7 +32,7 @@ export const EventsList = () => {
     <>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {clients
-          ?.filter((client) => client.id)
+          ?.filter((client) => client.name)
           .map((client) => {
             return (
               <Events

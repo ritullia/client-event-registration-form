@@ -9,6 +9,7 @@ import { Footer } from "./components/Footer";
 import { useContext, useState } from "react";
 import { AuthenticationContext } from "./components/AuthenticationContext";
 import { Protected } from "./components/Protected";
+import { HomePage } from "./components/HomePage";
 
 function App() {
   const { setIsSignedIn } = useContext(AuthenticationContext);
@@ -23,10 +24,11 @@ function App() {
     <>
       <NavBar isLoading={isLoading} onLogout={handleLogOut} />
       <Routes>
+        <Route element={<HomePage />} path="/" />
         <Route element={<Login />} path="/login" />
         <Route element={<Register />} path="/register" />
-        <Route element={<EventsList />} path="/events" />
-        <Route element={<AdminPanel />} path="/admin" />
+        {/* <Route element={<EventsList />} path="/events" />
+        <Route element={<AdminPanel />} path="/admin" /> */}
         <Route
           element={
             <Protected isLoading={isLoading} setIsLoading={setIsLoading} />

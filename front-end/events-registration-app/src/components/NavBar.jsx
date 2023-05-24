@@ -5,8 +5,12 @@ import Navbar from "react-bootstrap/Navbar";
 import { AuthenticationContext } from "./AuthenticationContext";
 import Button from "react-bootstrap/esm/Button";
 
-export const NavBar = ({ onLogout }) => {
+export const NavBar = ({ isLoding, onLogout }) => {
   const { isSignedIn } = useContext(AuthenticationContext);
+
+  if (isLoding) {
+    return;
+  }
 
   return (
     <>
