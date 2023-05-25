@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { Events } from "./Events";
 import { EditClientModal } from "./EditClientModal";
+import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
@@ -39,9 +40,9 @@ export const EventsList = () => {
 
   const handleModalSubmit = (id) => {
     axios
-      .put(`http://localhost:5000/clients/${id}`)
+      .put(`http://localhost:5000/clients/` + id, activeClient)
       .then((res) => {
-        setActiveClient(res.data);
+        console.log(res.data);
       })
       .catch((err) => console.log(err));
   };

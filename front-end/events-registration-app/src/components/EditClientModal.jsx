@@ -11,6 +11,7 @@ export const EditClientModal = ({
   //   console.log(activeClient);
 
   const [data, setData] = useState({
+    id: "",
     name: "",
     lastname: "",
     phone_number: "",
@@ -74,7 +75,7 @@ export const EditClientModal = ({
             Close
           </Button>
           <Button variant="primary" onClick={handleModalSubmit}>
-            Submit
+            Update
           </Button>
         </Modal.Footer>
       </Modal>
