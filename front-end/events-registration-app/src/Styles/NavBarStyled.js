@@ -6,7 +6,7 @@ import Button from "react-bootstrap/esm/Button";
 export const StylledNavbar = styled(Navbar)`
   background-color: #393939;
   padding: 40px 40px;
-  position: sticky;
+  position: relative;
   top: 0;
   width: 100%;
 `;

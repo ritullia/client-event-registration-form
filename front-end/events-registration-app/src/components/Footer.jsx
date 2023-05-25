@@ -42,7 +42,7 @@ export const Footer = ({ isLoding }) => {
                   </FooterLinkContainer>
                 </ColumnInfo>
                 <ColumnInfo>
-                  <Heading>Contacts</Heading>
+                  <Heading>Social media</Heading>
                   <FooterLinkContainer>
                     <FooterLink>
                       <FaFacebookSquare />
@@ -89,7 +89,18 @@ export const Footer = ({ isLoding }) => {
                   </FooterLinkContainer>
                 </ColumnInfo>
                 <ColumnInfo>
-                  <Heading>Contacts</Heading>
+                  <Heading>Social media</Heading>
+                  <FooterLinkContainer>
+                    <FooterLink>
+                      <FaFacebookSquare />
+                    </FooterLink>
+                    <FooterLink>
+                      <FaLinkedin />
+                    </FooterLink>
+                    <FooterLink>
+                      <FaInstagramSquare />
+                    </FooterLink>
+                  </FooterLinkContainer>
                 </ColumnInfo>
               </Row>
             </Container>

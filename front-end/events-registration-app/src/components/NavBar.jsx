@@ -25,7 +25,7 @@ export const NavBar = ({ isLoding, onLogout }) => {
       {isSignedIn ? (
         <>
           <Container>
-            <Navbar.Brand href="/" src={logoColibri} alt="logoColibri">
+            <Navbar.Brand href="/">
               <StyledLogo src={logoColibri} alt="logoColibri" />
             </Navbar.Brand>
             <Nav className="me-auto">
@@ -37,7 +37,9 @@ export const NavBar = ({ isLoding, onLogout }) => {
       ) : (
         <>
           <Container>
-            <Navbar.Brand href="#">LOGO</Navbar.Brand>
+            <Navbar.Brand href="/">
+              <StyledLogo src={logoColibri} alt="logoColibri" />
+            </Navbar.Brand>
             <Nav className="me-auto">
               <StyledNavLink href="/login">Log in</StyledNavLink>
               <StyledNavLink href="/register">Register</StyledNavLink>

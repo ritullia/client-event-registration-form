@@ -1,7 +1,8 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { StyledCardContainer } from "../Styles/ClientCardStyled";
 
-import { FaTrash, FaPen } from "react-icons/fa";
+import { FaTrash, FaUserEdit } from "react-icons/fa";
 
 // import axios from "axios";
 
@@ -12,10 +13,7 @@ export const Events = ({ client, onRemove, onEdit }) => {
 
   return (
     <>
-      <Card
-        className="text-center"
-        style={{ maxWidth: "100%", margin: "50px auto" }}
-      >
+      <StyledCardContainer>
         <Card.Header>Client</Card.Header>
         <Card.Body>
           <Card.Text>{name}</Card.Text>
@@ -24,14 +22,14 @@ export const Events = ({ client, onRemove, onEdit }) => {
           <Card.Text>{email}</Card.Text>
 
           <Button variant="primary" onClick={() => onEdit(client)}>
-            <FaPen />
+            <FaUserEdit />
           </Button>
           <Button variant="danger" onClick={() => onRemove(client.id)}>
             <FaTrash />
           </Button>
         </Card.Body>
         <Card.Footer className="text-muted">Notes</Card.Footer>
-      </Card>
+      </StyledCardContainer>
     </>
   );
 };

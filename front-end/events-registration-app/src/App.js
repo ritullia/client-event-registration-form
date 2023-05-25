@@ -36,7 +36,7 @@ function App() {
           <Route element={<AdminPanel />} path="/admin" />
         </Route>
       </Routes>
-      <Footer isLoading={isLoading} onLogout={handleLogOut} />
+      <Footer isLoading={isLoading} />
     </>
   );
 }
