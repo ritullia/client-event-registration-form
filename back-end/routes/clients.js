@@ -27,12 +27,14 @@ router.post("/clients", (req, res) => {
 
 router.put("/clients/:id", (req, res) => {
   const {
-    body: { id, name, lastname, phone_number, email },
+    body: { name, lastname, phone_number, email },
   } = req;
+  const { id } = req.params;
 
   clientsDbConnection.execute(
     `UPDATE client SET name=?, lastname=?, phone_number=?, email=? WHERE id=?`,
     [name, lastname, phone_number, email, id],
+
     (err, result) => defaultCallBack(err, result, res)
   );
 });

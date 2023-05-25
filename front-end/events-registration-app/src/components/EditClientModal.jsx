@@ -3,20 +3,31 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 
-export const EditClientModal = ({
-  activeClient,
-  handleModalClose,
-  handleModalSubmit,
-}) => {
+import axios from "axios";
+
+export const EditClientModal = ({ activeClient, handleModalClose }) => {
   //   console.log(activeClient);
 
   const [data, setData] = useState({
-    id: "",
     name: "",
     lastname: "",
     phone_number: "",
     email: "",
   });
+
+  const handleModalSubmit = (e) => {
+    e.preventDefault();
+    const id = activeClient.id;
+    console.log("Ateina", data);
+    axios
+      .put(`http://localhost:5000/clients/${id}`, data)
+      .then((res) => {
+        console.log("Res", res);
+        // handleModalClose();
+        window.location.reload();
+      })
+      .catch((err) => console.log(err));
+  };
 
   const handleOnChange = (e) => {
     setData({
@@ -37,6 +48,7 @@ export const EditClientModal = ({
           <Modal.Title>Edit client info</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <h4>Client Id: {activeClient?.id} </h4>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Name</Form.Label>

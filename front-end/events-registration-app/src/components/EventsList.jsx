@@ -1,7 +1,6 @@
 import { useEffect, useState, useMemo } from "react";
 import { Events } from "./Events";
 import { EditClientModal } from "./EditClientModal";
-import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
@@ -35,17 +34,8 @@ export const EventsList = () => {
         setClientsData(res.data);
         setIsLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   }, []);
-
-  const handleModalSubmit = (id) => {
-    axios
-      .put(`http://localhost:5000/clients/` + id, activeClient)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => console.log(err));
-  };
 
   const mappedClients = useMemo(() => {
     return clientsData?.map((client) => (
@@ -69,7 +59,6 @@ export const EventsList = () => {
       <EditClientModal
         activeClient={activeClient}
         handleModalClose={handleModalClose}
-        handleModalSubmit={handleModalSubmit}
       />
     </>
   );
