@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const ContainerBody = styled.div`
-  background-color: #ebebf1;
+  background-color: #393939;
 `;
 
 export const Container = styled.div`
   display: flex;
-  height: calc(100vh);
+
   margin: 50px;
 `;

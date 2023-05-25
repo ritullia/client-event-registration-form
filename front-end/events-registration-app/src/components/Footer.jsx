@@ -1,35 +1,98 @@
-export const Footer = () => {
+import { AuthenticationContext } from "./AuthenticationContext";
+import { useContext } from "react";
+import {
+  Box,
+  Container,
+  ColumnInfo,
+  Row,
+  Heading,
+  FooterLink,
+  FooterLinkContainer,
+} from "../Styles/StyledFooter";
+
+export const Footer = ({ isLoding }) => {
+  const { isSignedIn } = useContext(AuthenticationContext);
+  if (isLoding) {
+    return;
+  }
   return (
     <>
-      <div style={{ background: "black" }}>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-around",
-            color: "grey",
-            fontSize: "15px",
-          }}
-        >
-          <div>
-            <h3>All about events</h3>
-          </div>
-          <div>
-            <h3>Contacts</h3>
-          </div>
-          <div>
-            <h3>Links</h3>
-            <ul>
-              <li>
-                <a href="/clients">Clients</a>
-              </li>
-              <li>
-                <a href="/admin">Admin panel</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <Box>
+        {isSignedIn ? (
+          <>
+            <Container>
+              <Row>
+                <ColumnInfo>
+                  <Heading>All about events</Heading>
+                  <FooterLinkContainer>
+                    <FooterLink>
+                      <FooterLink href="/">Party</FooterLink>
+                    </FooterLink>
+                    <FooterLink>
+                      <FooterLink href="/">Theatre</FooterLink>
+                    </FooterLink>
+                    <FooterLink>
+                      <FooterLink href="/">Concerts</FooterLink>
+                    </FooterLink>
+                  </FooterLinkContainer>
+                </ColumnInfo>
+                <ColumnInfo>
+                  <Heading>Contacts</Heading>
+                  <FooterLinkContainer>
+                    <FooterLink>
+                      <i className="fab fa-facebook-f">
+                        <span style={{ marginLeft: "10px" }}>Facebook</span>
+                      </i>
+                    </FooterLink>
+                    <FooterLink>
+                      <FooterLink href="/">Theatre</FooterLink>
+                    </FooterLink>
+                    <FooterLink>
+                      <FooterLink href="/">Concerts</FooterLink>
+                    </FooterLink>
+                  </FooterLinkContainer>
+                </ColumnInfo>
+                <ColumnInfo>
+                  <Heading>Links</Heading>
+                  <FooterLinkContainer>
+                    <FooterLink>
+                      <FooterLink href="/clients">Clients</FooterLink>
+                    </FooterLink>
+                    <FooterLink>
+                      <FooterLink href="/admin">Admin panel</FooterLink>
+                    </FooterLink>
+                  </FooterLinkContainer>
+                </ColumnInfo>
+              </Row>
+            </Container>
+          </>
+        ) : (
+          <>
+            <Container>
+              <Row>
+                <ColumnInfo>
+                  <Heading>All about events</Heading>
+
+                  <FooterLinkContainer>
+                    <FooterLink>
+                      <FooterLink href="/">Party</FooterLink>
+                    </FooterLink>
+                    <FooterLink>
+                      <FooterLink href="/">Theatre</FooterLink>
+                    </FooterLink>
+                    <FooterLink>
+                      <FooterLink href="/">Concerts</FooterLink>
+                    </FooterLink>
+                  </FooterLinkContainer>
+                </ColumnInfo>
+                <ColumnInfo>
+                  <Heading>Contacts</Heading>
+                </ColumnInfo>
+              </Row>
+            </Container>
+          </>
+        )}
+      </Box>
     </>
   );
 };
