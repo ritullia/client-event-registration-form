@@ -1,5 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { FaTrash, FaPen } from "react-icons/fa";
 
 // import axios from "axios";
 
@@ -22,10 +23,10 @@ export const Events = ({ client, onRemove, onEdit }) => {
           <Card.Text>{email}</Card.Text>
 
           <Button variant="primary" onClick={() => onEdit(client)}>
-            Edit
+            <FaPen />
           </Button>
           <Button variant="danger" onClick={() => onRemove(client.id)}>
-            Delete
+            <FaTrash />
           </Button>
         </Card.Body>
         <Card.Footer className="text-muted">Notes</Card.Footer>

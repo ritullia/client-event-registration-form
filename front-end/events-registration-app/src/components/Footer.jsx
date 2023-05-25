@@ -9,6 +9,11 @@ import {
   FooterLink,
   FooterLinkContainer,
 } from "../Styles/StyledFooter";
+import {
+  FaFacebookSquare,
+  FaLinkedin,
+  FaInstagramSquare,
+} from "react-icons/fa";
 
 export const Footer = ({ isLoding }) => {
   const { isSignedIn } = useContext(AuthenticationContext);
@@ -40,15 +45,13 @@ export const Footer = ({ isLoding }) => {
                   <Heading>Contacts</Heading>
                   <FooterLinkContainer>
                     <FooterLink>
-                      <i className="fab fa-facebook-f">
-                        <span style={{ marginLeft: "10px" }}>Facebook</span>
-                      </i>
+                      <FaFacebookSquare />
                     </FooterLink>
                     <FooterLink>
-                      <FooterLink href="/">Theatre</FooterLink>
+                      <FaLinkedin />
                     </FooterLink>
                     <FooterLink>
-                      <FooterLink href="/">Concerts</FooterLink>
+                      <FaInstagramSquare />
                     </FooterLink>
                   </FooterLinkContainer>
                 </ColumnInfo>
