@@ -3,8 +3,15 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { AuthenticationContext } from "./AuthenticationContext";
-import Button from "react-bootstrap/esm/Button";
 import styles from "../Styles/StyledNavBar.module.css";
+import {
+  StylledNavbar,
+  StyledNavLink,
+  StyledButton,
+  StyledLogo,
+} from "../Styles/NavBarStyled";
+import { FaSignOutAlt } from "react-icons/fa";
+import logoColibri from "../assets/logoColibri.png";
 
 export const NavBar = ({ isLoding, onLogout }) => {
   const { isSignedIn } = useContext(AuthenticationContext);
@@ -14,16 +21,16 @@ export const NavBar = ({ isLoding, onLogout }) => {
   }
 
   return (
-    <Navbar bg="dark" variant="dark" className={styles.mainContainer}>
+    <StylledNavbar>
       {isSignedIn ? (
         <>
           <Container>
-            <Navbar.Brand href="/" alt="logo">
-              Logo
+            <Navbar.Brand href="/" src={logoColibri} alt="logoColibri">
+              <StyledLogo src={logoColibri} alt="logoColibri" />
             </Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/clients">Clients</Nav.Link>
-              <Nav.Link href="/admin">Admin</Nav.Link>
+              <StyledNavLink href="/clients">Clients</StyledNavLink>
+              <StyledNavLink href="/admin">Admin</StyledNavLink>
             </Nav>
           </Container>
         </>
@@ -32,17 +39,17 @@ export const NavBar = ({ isLoding, onLogout }) => {
           <Container>
             <Navbar.Brand href="#">LOGO</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/login">Log in</Nav.Link>
-              <Nav.Link href="/register">Register</Nav.Link>
+              <StyledNavLink href="/login">Log in</StyledNavLink>
+              <StyledNavLink href="/register">Register</StyledNavLink>
             </Nav>
           </Container>
         </>
       )}
       {isSignedIn && (
-        <Button onClick={onLogout} className={styles.deleteBtn}>
-          LOGOUT
-        </Button>
+        <StyledButton onClick={onLogout} className={styles.deleteBtn}>
+          <FaSignOutAlt />
+        </StyledButton>
       )}
-    </Navbar>
+    </StylledNavbar>
   );
 };

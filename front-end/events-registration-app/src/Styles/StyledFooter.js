@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
-  padding: 80px 60px;
+  padding: 60px 40px;
   background-color: #393939;
   position: absolute;
   bottom: 0;
@@ -29,11 +29,11 @@ export const ColumnInfo = styled.div`
 
 export const Row = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
   grid-gap: 20px;
 
   @media (max-width: 1000px) {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
 `;
 
