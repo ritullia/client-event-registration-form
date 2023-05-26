@@ -7,6 +7,9 @@ import {
   Container,
   ContainerText,
   CardContainer,
+  UpperContainer,
+  LowerContainer,
+  BodyContainer,
 } from "../Styles/HomeStyled";
 
 export const HomePage = () => {
@@ -16,8 +19,8 @@ export const HomePage = () => {
         <ContainerText>All about events</ContainerText>
       </Container>
       <CardContainer className="text-center">
-        <Card.Header>Featured</Card.Header>
-        <Card.Body>
+        <UpperContainer>Party</UpperContainer>
+        <BodyContainer>
           <Card.Title>Special title treatment</Card.Title>
           <Card.Text>
             With supporting text below as a natural lead-in to additional
@@ -26,8 +29,8 @@ export const HomePage = () => {
           <Button variant="primary">
             <Link to={"/admin"}>More</Link>
           </Button>
-        </Card.Body>
-        <Card.Footer className="text-muted"></Card.Footer>
+        </BodyContainer>
+        <LowerContainer className="text-muted"></LowerContainer>
       </CardContainer>
     </ContainerBody>
   );

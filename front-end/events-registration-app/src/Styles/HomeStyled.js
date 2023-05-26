@@ -25,3 +25,19 @@ export const CardContainer = styled(Card)`
   display: flex;
   justify-content: center;
 `;
+
+export const UpperContainer = styled(Card.Header)`
+  height: 100px;
+  background: linear-gradient(to right, #f56476, #e43f6f, #dfbbb1);
+`;
+export const LowerContainer = styled(Card.Footer)`
+  height: 50px;
+  background: linear-gradient(to right, #f56476, #e43f6f, #dfbbb1);
+`;
+
+export const BodyContainer = styled(Card.Body)`
+  height: 640px;
+  text-align: center;
+  font-family: "Titillium Web", sans-serif;
+  color: #393939;
+`;
