@@ -1,8 +1,16 @@
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { StyledCardContainer } from "../Styles/ClientCardStyled";
+import {
+  StyledCardContainer,
+  UpperContainer,
+  IconContainer,
+  LowerContainer,
+  CardText,
+  CardTextContacts,
+  StyledEditButton,
+  StyledDeleteButton,
+} from "../Styles/ClientCardStyled";
 
-import { FaTrash, FaUserEdit } from "react-icons/fa";
+import { FaTrash, FaUserEdit, FaUserAlt } from "react-icons/fa";
 
 // import axios from "axios";
 
@@ -12,24 +20,29 @@ export const Events = ({ client, onRemove, onEdit }) => {
   console.log(client);
 
   return (
-    <>
-      <StyledCardContainer>
-        <Card.Header>Client</Card.Header>
-        <Card.Body>
-          <Card.Text>{name}</Card.Text>
-          <Card.Text>{lastname}</Card.Text>
-          <Card.Text>{phone_number}</Card.Text>
-          <Card.Text>{email}</Card.Text>
+    <StyledCardContainer>
+      <UpperContainer>
+        <IconContainer>
+          <FaUserAlt />
+        </IconContainer>
+      </UpperContainer>
+      <LowerContainer>
+        <CardText>{name}</CardText>
+        <CardText>{lastname}</CardText>
+        <CardTextContacts>{phone_number}</CardTextContacts>
+        <CardTextContacts>{email}</CardTextContacts>
 
-          <Button variant="primary" onClick={() => onEdit(client)}>
-            <FaUserEdit />
-          </Button>
-          <Button variant="danger" onClick={() => onRemove(client.id)}>
-            <FaTrash />
-          </Button>
-        </Card.Body>
-        <Card.Footer className="text-muted">Notes</Card.Footer>
-      </StyledCardContainer>
-    </>
+        <StyledEditButton variant="primary" onClick={() => onEdit(client)}>
+          <FaUserEdit />
+        </StyledEditButton>
+        <StyledDeleteButton
+          variant="danger"
+          onClick={() => onRemove(client.id)}
+        >
+          <FaTrash />
+        </StyledDeleteButton>
+      </LowerContainer>
+      <Card.Footer className="text-muted">Events date:</Card.Footer>
+    </StyledCardContainer>
   );
 };

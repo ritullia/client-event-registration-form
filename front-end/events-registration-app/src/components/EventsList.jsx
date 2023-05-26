@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { Events } from "./Events";
 import { EditClientModal } from "./EditClientModal";
+import { EventsListBox, EventsListContainer } from "../Styles/EventsListStyled";
 
 import axios from "axios";
 
@@ -54,12 +55,14 @@ export const EventsList = () => {
   console.log("client", clientsData);
 
   return (
-    <>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>{mappedClients}</div>
+    <EventsListBox>
+      <EventsListContainer style={{ display: "flex", flexWrap: "wrap" }}>
+        {mappedClients}
+      </EventsListContainer>
       <EditClientModal
         activeClient={activeClient}
         handleModalClose={handleModalClose}
       />
-    </>
+    </EventsListBox>
   );
 };
