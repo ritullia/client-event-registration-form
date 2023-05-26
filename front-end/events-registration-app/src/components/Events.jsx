@@ -8,6 +8,7 @@ import {
   CardText,
   CardTextContacts,
   StyledEditButton,
+  StyledDeleteButton,
 } from "../Styles/ClientCardStyled";
 
 import { FaTrash, FaUserEdit, FaUserAlt } from "react-icons/fa";
@@ -35,9 +36,12 @@ export const Events = ({ client, onRemove, onEdit }) => {
         <StyledEditButton variant="primary" onClick={() => onEdit(client)}>
           <FaUserEdit />
         </StyledEditButton>
-        <Button variant="danger" onClick={() => onRemove(client.id)}>
+        <StyledDeleteButton
+          variant="danger"
+          onClick={() => onRemove(client.id)}
+        >
           <FaTrash />
-        </Button>
+        </StyledDeleteButton>
       </LowerContainer>
       <Card.Footer className="text-muted">Events date:</Card.Footer>
     </StyledCardContainer>

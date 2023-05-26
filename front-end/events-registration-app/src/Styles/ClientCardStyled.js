@@ -28,6 +28,8 @@ export const IconContainer = styled.div`
   align-items: center;
   justify-content: center;
   border: 2px solid #237f81;
+  font-size: 36px;
+  color: #c1b8c8;
 `;
 
 export const LowerContainer = styled(Card.Body)`
@@ -55,10 +57,25 @@ export const StyledEditButton = styled(Button)`
   background-color: #7a8b99;
   border-color: #7a8b99;
   margin: 5px;
+  text-align: center;
+  font-size: 18px;
 
   &:hover {
     background-color: #393939;
     border: #393939;
+    margin: 5px;
+  }
+`;
+export const StyledDeleteButton = styled(Button)`
+  background-color: #f56476;
+  border-color: #f56476;
+  margin: 5px;
+  text-align: center;
+  font-size: 18px;
+
+  &:hover {
+    background-color: #e43f6f;
+    border: #e43f6f;
     margin: 5px;
   }
 `;
