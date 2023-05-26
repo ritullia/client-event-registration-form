@@ -33,7 +33,7 @@ clientsDbConnection.query(
                 email VARCHAR(100) NOT NULL,
                 primary key (id),
                 user_ID int,
-                FOREIGN KEY (userID) REFERENCES user(id)
+                FOREIGN KEY (user_ID) REFERENCES user(id)
             )
         `;
 
