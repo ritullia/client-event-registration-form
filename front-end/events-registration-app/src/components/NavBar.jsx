@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { AuthenticationContext } from "./AuthenticationContext";
-import styles from "../Styles/StyledNavBar.module.css";
 import {
   StylledNavbar,
   StyledNavLink,
@@ -48,7 +47,7 @@ export const NavBar = ({ isLoding, onLogout }) => {
         </>
       )}
       {isSignedIn && (
-        <StyledButton onClick={onLogout} className={styles.deleteBtn}>
+        <StyledButton onClick={onLogout}>
           <FaSignOutAlt />
         </StyledButton>
       )}
