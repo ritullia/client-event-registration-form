@@ -10,14 +10,12 @@ router.get("/clients", (req, res) => {
     defaultCallBack(err, result, res);
   });
 });
+
 // router.get("/clients", (req, res) => {
 //   clientsDbConnection.execute(
-//     `SELECT
-//         client.id, client.name, user.name AS user_name, user.id
-//       FROM
-//         client
-//             LEFT JOIN
-//         user ON client.user_id = user.id;`,
+//     `SELECT user.id, user.name, user.email, client.id, client.name, client.lastname, client.email FROM client
+//     LEFT JOIN user
+//     ON client.user_ID = user.id WHERE client.id=?`,
 //     (err, result) => {
 //       defaultCallBack(err, result, res);
 //     }

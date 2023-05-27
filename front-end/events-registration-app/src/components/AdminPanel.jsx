@@ -40,7 +40,7 @@ export const AdminPanel = () => {
         style={{
           maxWidth: "340px",
           margin: "50px auto",
-          backgroundColor: "#a9ddd6",
+          backgroundColor: "#3dcacd",
           padding: "20px",
           color: "#373f51",
           fontWeight: "600",

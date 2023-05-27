@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 
 export const StyledSubmitButton = styled(Button)`
-  background-color: #91adc2;
-  border-color: #91adc2;
+  background-color: #008dd5;
+  border-color: #008dd5;
   margin: 5px;
   text-align: center;
   font-size: 18px;
