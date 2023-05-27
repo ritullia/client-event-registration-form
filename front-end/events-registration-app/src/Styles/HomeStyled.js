@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import party from "../assets/party.png";
 
 export const ContainerBody = styled.div`
   margin: 80px;
@@ -24,6 +25,8 @@ export const CardContainer = styled(Card)`
   margin: 10px;
   display: flex;
   justify-content: center;
+  background: url(${party}) no-repeat center 5%;
+  background-size: cover;
 `;
 
 export const UpperContainer = styled(Card.Header)`
@@ -40,4 +43,35 @@ export const BodyContainer = styled(Card.Body)`
   text-align: center;
   font-family: "Titillium Web", sans-serif;
   color: #393939;
+  background-color: #fff6;
+`;
+
+export const StyledButton = styled(Button)`
+  background-color: #7a8b99;
+  border-color: #7a8b99;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+
+  &:hover {
+    background-color: #393939;
+    border: #393939;
+    margin: 5px;
+  }
+`;
+
+export const CardTextContacts = styled(Card.Text)`
+  margin: 10px;
+  padding: 0;
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: #008dd5;
+  text-shadow: 2px 2px #373f51;
+`;
+export const CardText = styled(Card.Text)`
+  margin: 10px;
+  padding: 0;
+  font-weight: 600;
+  font-size: 1rem;
 `;
