@@ -57,7 +57,6 @@ export const StyledButton = styled(Button)`
   &:hover {
     background-color: #393939;
     border: #393939;
-    margin: 5px;
   }
 `;
 
