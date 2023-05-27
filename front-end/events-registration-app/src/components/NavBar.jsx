@@ -36,7 +36,7 @@ export const NavBar = ({ isLoding, onLogout }) => {
       ) : (
         <>
           <Container>
-            <Navbar.Brand href="/">
+            <Navbar.Brand>
               <StyledLogo src={logoColibri} alt="logoColibri" />
             </Navbar.Brand>
             <Nav className="me-auto">
