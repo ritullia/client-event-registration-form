@@ -3,6 +3,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
+import { AdminFormBox, StyledSubmitButton } from "../Styles/AdminPanelStyled";
 
 export const AdminPanel = () => {
   const [data, setData] = useState({
@@ -39,10 +40,13 @@ export const AdminPanel = () => {
         style={{
           maxWidth: "340px",
           margin: "50px auto",
-          backgroundColor: "#4b5162",
+          backgroundColor: "#a9ddd6",
           padding: "20px",
-          color: "#ffff",
+          color: "#373f51",
+          fontWeight: "600",
           borderRadius: "8px",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -88,13 +92,13 @@ export const AdminPanel = () => {
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
-        <Button
+        <StyledSubmitButton
           //   onClick={() => alert("Įvestas naujas klientas")}
           variant="primary"
           type="submit"
         >
           Submit
-        </Button>
+        </StyledSubmitButton>
       </Form>
     </>
   );
