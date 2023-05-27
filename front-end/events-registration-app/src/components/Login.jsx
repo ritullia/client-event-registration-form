@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import { AuthenticationContext } from "./AuthenticationContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { StyledLoInButton, StyleLogin } from "../Styles/LoginStyled";
 
 export const Login = () => {
   const { setIsSignedIn } = useContext(AuthenticationContext);
@@ -40,16 +41,19 @@ export const Login = () => {
     });
   };
   return (
-    <>
+    <StyleLogin>
       <Form
         onSubmit={onHandleSubmit}
         style={{
           maxWidth: "340px",
-          margin: "50px auto",
-          backgroundColor: "#4b5162",
+          margin: "100px auto",
+          backgroundColor: "#a9ddd6",
           padding: "20px",
-          color: "#ffff",
+          color: "#373f51",
+          fontWeight: "600",
           borderRadius: "8px",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         <Form.Group className="mb-3" controlId="formBasic">
@@ -75,15 +79,15 @@ export const Login = () => {
             required
           />
         </Form.Group>
-        <Button
+        <StyledLoInButton
           //   onClick={() => alert("Įvestas naujas klientas")}
           variant="primary"
           type="submit"
         >
           Log in
-        </Button>
+        </StyledLoInButton>
         {error && <div>{error}</div>}
       </Form>
-    </>
+    </StyleLogin>
   );
 };
