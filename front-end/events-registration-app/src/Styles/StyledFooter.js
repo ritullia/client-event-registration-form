@@ -48,6 +48,10 @@ export const FooterLinkContainer = styled.ul`
   display: flex;
   flex-direction: column;
 `;
+export const FooterLinks = styled.li`
+  display: flex;
+  flex-direction: column;
+`;
 export const FooterLink = styled.a`
   color: #3dcacd;
   margin-bottom: 20px;

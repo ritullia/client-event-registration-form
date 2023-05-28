@@ -18,6 +18,7 @@ export const EventsList = () => {
     setActiveClient(null);
   };
 
+  // delete client
   const handleRemoveClient = (id) => {
     if (window.confirm(`Do you want to remove ?`)) {
       fetch(`http://localhost:5000/clients/` + id, { method: "DELETE" })

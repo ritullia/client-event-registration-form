@@ -31,7 +31,9 @@ clientsDbConnection.query(
                 lastname VARCHAR(100) NOT NULL,
                 phone_number BIGINT(20) NOT NULL,
                 email VARCHAR(100) NOT NULL,
-                primary key (id)
+                primary key (id),
+                user_id INT,
+                foreign key (user_id) REFERENCES user(id)
                 
                 
                
@@ -51,9 +53,8 @@ clientsDbConnection.query(
                 lastname VARCHAR(100) NOT NULL,
                 email VARCHAR(100) NOT NULL UNIQUE,
                 password VARCHAR(100) NOT NULL,
-                primary key (id),
-                client_id INT,
-                foreign key (client_id) REFERENCES client(id)
+                primary key (id)
+               
             )
         `;
 

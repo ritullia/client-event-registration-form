@@ -8,6 +8,7 @@ import {
   Heading,
   FooterLink,
   FooterLinkContainer,
+  FooterLinks,
 } from "../Styles/StyledFooter";
 import {
   FaFacebookSquare,
@@ -30,15 +31,15 @@ export const Footer = ({ isLoding }) => {
                 <ColumnInfo>
                   <Heading>All about events</Heading>
                   <FooterLinkContainer>
-                    <FooterLink>
+                    <FooterLinks>
                       <FooterLink href="/">Party</FooterLink>
-                    </FooterLink>
-                    <FooterLink>
+                    </FooterLinks>
+                    <FooterLinks>
                       <FooterLink href="/">Theatre</FooterLink>
-                    </FooterLink>
-                    <FooterLink>
+                    </FooterLinks>
+                    <FooterLinks>
                       <FooterLink href="/">Concerts</FooterLink>
-                    </FooterLink>
+                    </FooterLinks>
                   </FooterLinkContainer>
                 </ColumnInfo>
                 <ColumnInfo>
@@ -46,11 +47,7 @@ export const Footer = ({ isLoding }) => {
                   <FooterLinkContainer>
                     <FooterLink>
                       <FaFacebookSquare />
-                    </FooterLink>
-                    <FooterLink>
                       <FaLinkedin />
-                    </FooterLink>
-                    <FooterLink>
                       <FaInstagramSquare />
                     </FooterLink>
                   </FooterLinkContainer>
@@ -58,12 +55,12 @@ export const Footer = ({ isLoding }) => {
                 <ColumnInfo>
                   <Heading>Links</Heading>
                   <FooterLinkContainer>
-                    <FooterLink>
+                    <FooterLinks>
                       <FooterLink href="/clients">Clients</FooterLink>
-                    </FooterLink>
-                    <FooterLink>
+                    </FooterLinks>
+                    <FooterLinks>
                       <FooterLink href="/admin">Admin panel</FooterLink>
-                    </FooterLink>
+                    </FooterLinks>
                   </FooterLinkContainer>
                 </ColumnInfo>
               </Row>
@@ -75,31 +72,26 @@ export const Footer = ({ isLoding }) => {
               <Row>
                 <ColumnInfo>
                   <Heading>All about events</Heading>
-
                   <FooterLinkContainer>
-                    <FooterLink>
+                    <FooterLinks>
                       <FooterLink href="/">Party</FooterLink>
-                    </FooterLink>
-                    <FooterLink>
+                    </FooterLinks>
+                    <FooterLinks>
                       <FooterLink href="/">Theatre</FooterLink>
-                    </FooterLink>
-                    <FooterLink>
+                    </FooterLinks>
+                    <FooterLinks>
                       <FooterLink href="/">Concerts</FooterLink>
-                    </FooterLink>
+                    </FooterLinks>
                   </FooterLinkContainer>
                 </ColumnInfo>
                 <ColumnInfo>
                   <Heading>Social media</Heading>
                   <FooterLinkContainer>
-                    <FooterLink>
+                    <FooterLinks>
                       <FaFacebookSquare />
-                    </FooterLink>
-                    <FooterLink>
                       <FaLinkedin />
-                    </FooterLink>
-                    <FooterLink>
                       <FaInstagramSquare />
-                    </FooterLink>
+                    </FooterLinks>
                   </FooterLinkContainer>
                 </ColumnInfo>
               </Row>

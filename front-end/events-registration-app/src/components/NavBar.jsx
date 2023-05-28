@@ -30,6 +30,7 @@ export const NavBar = ({ isLoding, onLogout }) => {
             <Nav className="me-auto">
               <StyledNavLink href="/clients">Clients</StyledNavLink>
               <StyledNavLink href="/admin">Admin</StyledNavLink>
+              <StyledNavLink href="/users">Managers</StyledNavLink>
             </Nav>
           </Container>
         </>

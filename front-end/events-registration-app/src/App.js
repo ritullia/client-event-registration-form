@@ -10,6 +10,7 @@ import { useContext, useState } from "react";
 import { AuthenticationContext } from "./components/AuthenticationContext";
 import { Protected } from "./components/Protected";
 import { HomePage } from "./components/HomePage";
+import { AdminUserList } from "./components/AdminUserList";
 
 function App() {
   const { setIsSignedIn } = useContext(AuthenticationContext);
@@ -33,6 +34,7 @@ function App() {
           }
         >
           <Route element={<HomePage />} path="/" />
+          <Route element={<AdminUserList />} path="/users" />
           <Route element={<EventsList />} path="/clients" />
           <Route element={<AdminPanel />} path="/admin" />
         </Route>
