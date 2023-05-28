@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 // import axios from "axios";
 import { useState } from "react";
 import axios from "axios";
+import { StyledRegisterButton } from "../Styles/RegisterStyled";
 
 export const Register = () => {
   const [formData, setFormData] = useState({
@@ -36,32 +37,12 @@ export const Register = () => {
     <>
       <div>
         <div style={{ margin: "30px" }}>
-          <div
-            style={{
-              maxWidth: "340px",
-              margin: "100px auto",
-              marginBottom: "0px",
-              backgroundColor: "#747a8a",
-              padding: "20px",
-              color: "#ffff",
-              borderRadius: "8px 8px 0 0",
-              fontSize: "24px",
-            }}
-          >
-            <h2
-              style={{
-                fontSize: "18px",
-              }}
-            >
-              Have your account registered
-            </h2>
-          </div>
           <Form
             onSubmit={onHandleSubmit}
             style={{
               maxWidth: "340px",
               margin: "50px auto",
-              backgroundColor: "#4b5162",
+              backgroundColor: "#a9ddd6",
               padding: "20px",
               color: "#ffff",
               borderRadius: "8px",
@@ -115,13 +96,13 @@ export const Register = () => {
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="I accept Terms of use" />
             </Form.Group>
-            <Button
+            <StyledRegisterButton
               //   onClick={() => alert("Įvestas naujas klientas")}
               variant="primary"
               type="submit"
             >
               REGISTER
-            </Button>
+            </StyledRegisterButton>
             <Button
               //   onClick={() => alert("Įvestas naujas klientas")}
               variant="info"

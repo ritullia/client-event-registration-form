@@ -39,7 +39,7 @@ export const HomePage = () => {
               to={"/admin"}
               style={{ color: "#fff", textDecoration: "none" }}
             >
-              Register
+              To clients register form
             </Link>
           </StyledButton>
         </BodyContainer>

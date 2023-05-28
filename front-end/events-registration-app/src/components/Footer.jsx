@@ -9,6 +9,7 @@ import {
   FooterLink,
   FooterLinkContainer,
   FooterLinks,
+  FooterSocialIcon,
 } from "../Styles/StyledFooter";
 import {
   FaFacebookSquare,
@@ -45,11 +46,11 @@ export const Footer = ({ isLoding }) => {
                 <ColumnInfo>
                   <Heading>Social media</Heading>
                   <FooterLinkContainer>
-                    <FooterLink>
+                    <FooterSocialIcon>
                       <FaFacebookSquare />
                       <FaLinkedin />
                       <FaInstagramSquare />
-                    </FooterLink>
+                    </FooterSocialIcon>
                   </FooterLinkContainer>
                 </ColumnInfo>
                 <ColumnInfo>
@@ -87,11 +88,11 @@ export const Footer = ({ isLoding }) => {
                 <ColumnInfo>
                   <Heading>Social media</Heading>
                   <FooterLinkContainer>
-                    <FooterLinks>
+                    <FooterSocialIcon>
                       <FaFacebookSquare />
                       <FaLinkedin />
                       <FaInstagramSquare />
-                    </FooterLinks>
+                    </FooterSocialIcon>
                   </FooterLinkContainer>
                 </ColumnInfo>
               </Row>

@@ -33,7 +33,6 @@ function App() {
             <Protected isLoading={isLoading} setIsLoading={setIsLoading} />
           }
         >
-          <Route element={<HomePage />} path="/" />
           <Route element={<AdminUserList />} path="/users" />
           <Route element={<EventsList />} path="/clients" />
           <Route element={<AdminPanel />} path="/admin" />

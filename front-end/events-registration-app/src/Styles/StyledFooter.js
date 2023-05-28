@@ -47,6 +47,15 @@ export const Heading = styled.h3`
 export const FooterLinkContainer = styled.ul`
   display: flex;
   flex-direction: column;
+  color: #3dcacd;
+  font-size: 24px;
+`;
+export const FooterSocialIcon = styled.ul`
+  display: flex;
+  flex-direction: row;
+  color: #3dcacd;
+  font-size: 24px;
+  gap: 10px;
 `;
 export const FooterLinks = styled.li`
   display: flex;
