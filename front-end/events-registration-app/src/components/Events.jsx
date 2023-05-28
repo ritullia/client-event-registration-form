@@ -42,7 +42,7 @@ export const Events = ({ client, onRemove, onEdit }) => {
           <FaTrash />
         </StyledDeleteButton>
       </LowerContainer>
-      <Card.Footer className="text-muted">Events date:</Card.Footer>
+      <Card.Footer className="text-muted">Entered:</Card.Footer>
     </StyledCardContainer>
   );
 };

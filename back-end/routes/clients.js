@@ -11,16 +11,21 @@ router.get("/clients", (req, res) => {
   });
 });
 
-// router.get("/clients", (req, res) => {
-//   clientsDbConnection.execute(
-//     `SELECT user.id, user.name, user.email, client.id, client.name, client.lastname, client.email FROM client
-//     LEFT JOIN user
-//     ON client.user_ID = user.id WHERE client.id=?`,
-//     (err, result) => {
-//       defaultCallBack(err, result, res);
-//     }
-//   );
-// });
+router.get("/clients/:id", (req, res) => {
+  const { id } = req.params;
+  clientsDbConnection.execute(
+    `SELECT  client.id, client.name AS client_name,
+    user.id, user.email
+       FROM 
+       client
+       LEFT JOIN 
+      user ON user.client_id = client.id WHERE client.id=?`,
+    [id],
+    (err, result) => {
+      defaultCallBack(err, result, res);
+    }
+  );
+});
 
 router.post("/clients", (req, res) => {
   const {

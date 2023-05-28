@@ -8,7 +8,6 @@ import axios from "axios";
 export const EventsList = () => {
   const [clientsData, setClientsData] = useState(null);
   const [activeClient, setActiveClient] = useState(null);
-
   const [isLoading, setIsLoading] = useState(true);
 
   const handleClientClick = (client) => {
