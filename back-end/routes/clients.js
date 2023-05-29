@@ -5,13 +5,13 @@ const { verifyToken } = require("../helpers/authentication");
 
 const router = express.Router();
 
-router.get("/clients", (req, res) => {
+router.get("/clients", verifyToken, (req, res) => {
   clientsDbConnection.execute(`SELECT * FROM client`, (err, result) => {
     defaultCallBack(err, result, res);
   });
 });
 
-router.get("/clients/:id", (req, res) => {
+router.get("/clients/:id", verifyToken, (req, res) => {
   const { id } = req.params;
   clientsDbConnection.execute(
     `SELECT  client.id, client.name AS client_name,
@@ -42,7 +42,7 @@ router.post("/clients", verifyToken, (req, res) => {
   );
 });
 
-router.put("/clients/:id", (req, res) => {
+router.put("/clients/:id", verifyToken, (req, res) => {
   const {
     body: { name, lastname, phone_number, email },
   } = req;
@@ -56,7 +56,7 @@ router.put("/clients/:id", (req, res) => {
   );
 });
 
-router.delete("/clients/:id", (req, res) => {
+router.delete("/clients/:id", verifyToken, (req, res) => {
   const { id } = req.params;
 
   clientsDbConnection.execute(
