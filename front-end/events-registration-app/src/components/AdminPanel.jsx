@@ -21,6 +21,7 @@ export const AdminPanel = () => {
     e.preventDefault();
     alert(`Ivestas naujas dalyvis`);
 
+    // cia idedam token ir headers
     const token = localStorage.getItem("token");
 
     axios

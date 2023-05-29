@@ -8,6 +8,7 @@ import axios from "axios";
 export const EventsList = () => {
   const [clientsData, setClientsData] = useState(null);
   const [activeClient, setActiveClient] = useState(null);
+  const [adminInfo, setAdminInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const handleClientClick = (client) => {
@@ -17,6 +18,8 @@ export const EventsList = () => {
   const handleModalClose = () => {
     setActiveClient(null);
   };
+
+  const token = localStorage.getItem("token");
 
   // delete client
   const handleRemoveClient = (id) => {
@@ -30,10 +33,15 @@ export const EventsList = () => {
   };
 
   useEffect(() => {
-    axios("http://localhost:5000/clients")
+    axios("http://localhost:5000/clients", {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    })
       .then((res) => {
         setClientsData(res.data);
         setIsLoading(false);
+        setAdminInfo(res.data);
       })
       .catch((err) => console.error(err));
   }, []);
@@ -61,6 +69,7 @@ export const EventsList = () => {
       </EventsListContainer>
       <EditClientModal
         activeClient={activeClient}
+        adminInfo={adminInfo}
         handleModalClose={handleModalClose}
       />
     </EventsListBox>

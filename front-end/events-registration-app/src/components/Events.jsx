@@ -9,12 +9,11 @@ import {
   StyledEditButton,
   StyledDeleteButton,
 } from "../Styles/ClientCardStyled";
-
 import { FaTrash, FaUserEdit, FaUserAlt } from "react-icons/fa";
 
 // import axios from "axios";
 
-export const Events = ({ client, onRemove, onEdit, user }) => {
+export const Events = ({ client, onRemove, onEdit }) => {
   const { name, lastname, phone_number, email } = client;
 
   console.log(client);
@@ -42,7 +41,7 @@ export const Events = ({ client, onRemove, onEdit, user }) => {
           <FaTrash />
         </StyledDeleteButton>
       </LowerContainer>
-      <Card.Footer className="text-muted">Entered:{user}</Card.Footer>
+      <Card.Footer className="text-muted">Entered:{}</Card.Footer>
     </StyledCardContainer>
   );
 };
