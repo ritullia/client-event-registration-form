@@ -1,6 +1,7 @@
-import Card from "react-bootstrap/Card";
+// import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-
+import { AuthenticationContext } from "./AuthenticationContext";
+import { useContext } from "react";
 import {
   ContainerBody,
   Container,
@@ -15,6 +16,7 @@ import {
 } from "../Styles/HomeStyled";
 
 export const HomePage = () => {
+  const { isSignedIn } = useContext(AuthenticationContext);
   return (
     <ContainerBody>
       <Container>
@@ -33,15 +35,16 @@ export const HomePage = () => {
             Vilnius and learn more about various historical topics. Find the
             nearest upcoming events or select a date on...
           </CardText>
-
-          <StyledButton variant="primary">
-            <Link
-              to={"/admin"}
-              style={{ color: "#fff", textDecoration: "none" }}
-            >
-              To clients register form
-            </Link>
-          </StyledButton>
+          {isSignedIn && (
+            <StyledButton variant="primary">
+              <Link
+                to={"/admin"}
+                style={{ color: "#fff", textDecoration: "none" }}
+              >
+                To clients register form
+              </Link>
+            </StyledButton>
+          )}
         </BodyContainer>
         <LowerContainer className="text-muted"></LowerContainer>
       </CardContainer>

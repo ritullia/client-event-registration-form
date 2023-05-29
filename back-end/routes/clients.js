@@ -15,11 +15,11 @@ router.get("/clients/:id", (req, res) => {
   const { id } = req.params;
   clientsDbConnection.execute(
     `SELECT  client.id, client.name AS client_name,
-    user.id, user.email
+    user.id AS user_id, user.email
        FROM 
        client
-       LEFT JOIN 
-      user ON user.client_id = client.id WHERE client.id=?`,
+       INNER JOIN 
+      user ON client.user_id=user.id WHERE user_id=?`,
     [id],
     (err, result) => {
       defaultCallBack(err, result, res);
@@ -27,14 +27,15 @@ router.get("/clients/:id", (req, res) => {
   );
 });
 
-router.post("/clients", (req, res) => {
+router.post("/clients", verifyToken, (req, res) => {
+  const user_id = res.locals.user.id;
   const {
     body: { name, lastname, phone_number, email },
   } = req;
 
   clientsDbConnection.execute(
-    `INSERT INTO client (name, lastname, phone_number, email) VALUES (?, ?, ?, ?) `,
-    [name, lastname, phone_number, email],
+    `INSERT INTO client (name, lastname, phone_number, email, user_id) VALUES (?, ?, ?, ?, ?)`,
+    [name, lastname, phone_number, email, user_id],
     (err, result) => {
       defaultCallBack(err, result, res);
     }

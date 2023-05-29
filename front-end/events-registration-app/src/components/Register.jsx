@@ -17,7 +17,6 @@ export const Register = () => {
   const navigate = useNavigate();
   const onHandleSubmit = (e) => {
     e.preventDefault();
-    alert(`Papsaustas registravimo formos mygtukas ${formData}`);
 
     axios
       .post("http://localhost:5000/register", formData)
@@ -25,6 +24,8 @@ export const Register = () => {
         navigate("/login");
       })
       .catch((err) => console.log(err));
+
+    alert(`Papsaustas registravimo formos mygtukas ${formData}`);
   };
 
   const handleOnChange = (e) => {
@@ -48,7 +49,7 @@ export const Register = () => {
               borderRadius: "8px",
             }}
           >
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" controlId="formBasicName">
               <Form.Label>Name</Form.Label>
               <Form.Control
                 name="name"
@@ -58,7 +59,7 @@ export const Register = () => {
                 required
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" controlId="formBasicSurname">
               <Form.Label>Lastname</Form.Label>
               <Form.Control
                 name="lastname"

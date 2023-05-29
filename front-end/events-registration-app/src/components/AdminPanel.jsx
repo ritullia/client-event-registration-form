@@ -21,10 +21,18 @@ export const AdminPanel = () => {
     e.preventDefault();
     alert(`Ivestas naujas dalyvis`);
 
-    axios.post("http://localhost:5000/clients", data).then((response) => {
-      console.log(response.data);
-      navigate("/clients");
-    });
+    const token = localStorage.getItem("token");
+
+    axios
+      .post("http://localhost:5000/clients", data, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        navigate("/clients");
+      });
   };
 
   const handleOnChange = (e) => {
